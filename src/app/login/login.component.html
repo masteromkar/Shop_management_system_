@@ -1,0 +1,61 @@
+<div class="container-fluid">
+   <div class="row   justify-content-center  align-items-center "
+   style="height: 100vh;">
+      <div [formGroup]="fbFormGroup"
+       class="col-10 col-md-4  d-flex flex-column justify-content-center align-items-center" 
+      style="background-color:rgba(10,10,10,0.2);padding:2%;">
+
+         <div  style="color:whitesmoke;font-family:cursive;">
+          <h1><fa-icon [icon]="faShoppingCart"></fa-icon> Welcome</h1></div>
+
+        <!--<div style="color:whitesmoke;font-family:cursive;"><h1>Shop Management system</h1></div>--> 
+         
+         <div class="col-auto mt-2">
+            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">@</div>
+              </div>
+              <input type="text" class="form-control" id="inlineFormInputGroup" 
+              placeholder="Username" formControlName="username"/>
+             </div>
+          </div>
+          <label style="color: whitesmoke;" 
+            *ngIf="fbFormGroup.get('username').invalid &&
+            fbFormGroup.get('username').touched "
+          >Username required / invalid </label>
+
+         
+           <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Password</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><fa-icon [icon]="faUnlockAlt"></fa-icon></div>
+              </div>
+              <input type="password" class="form-control" id="inlineFormInputGroup" 
+              placeholder="Password" formControlName="password"/>
+            </div>
+          </div>
+         
+          <label style="color: whitesmoke;" 
+          *ngIf="fbFormGroup.get('password').invalid &&
+          fbFormGroup.get('password').touched "
+        >Password required / invalid </label>
+
+            <!--button-->
+
+         <div class="mt-2">
+            <button type="button" class="btn btn-primary mr-3" [disabled]="!fbFormGroup.valid" (click)= "adminlogin()">Admin Login</button>
+            <button type="button" class="btn btn-primary" [disabled]="!fbFormGroup.valid" (click)="userlogin()">User Login</button>
+         </div> 
+
+         <h5 class="mt-2" style="color:greenyellow;font-family:cursive;">---For new user Sign up---</h5>
+
+         <div class="mt-2">
+            <button type="button" class="btn btn-primary mr-3" (click)="gotoadmin()">Admin SignUp</button>
+            <button type="button" class="btn btn-primary" (click)="gotouser()">User SignUp</button>
+         </div>
+      
+      </div>
+   </div>
+ </div>
